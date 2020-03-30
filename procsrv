@@ -1,0 +1,68 @@
+#!/bin/sh
+
+PROCSERVER=/usr/local/procserver
+LIB=$PROCSERVER/lib
+
+#
+# Set the wasp home directory
+WASP_HOME=/opt/wasp
+WASP_LIB=$WASP_HOME/lib
+
+#
+# Emery libraries
+CLASS_PATH=$CLASS_PATH:$LIB/emloader-j1.5.jar
+CLASS_PATH=$CLASS_PATH:$LIB/emutils-3.2.0.jar
+CLASS_PATH=$CLASS_PATH:$LIB/wsbeans-2.2.2.jar
+CLASS_PATH=$CLASS_PATH:$LIB/oagis-2.8.01.jar
+
+#
+# commons
+CLASS_PATH=$CLASS_PATH:$LIB/commons-codec-1.4.jar
+CLASS_PATH=$CLASS_PATH:$LIB/commons-httpclient-3.1.jar
+CLASS_PATH=$CLASS_PATH:$LIB/commons-logging-1.1.1.jar
+
+#
+# ActiveMQ
+CLASS_PATH=$CLASS_PATH:$LIB/activemq-all-5.5.0.jar
+CLASS_PATH=$CLASS_PATH:$LIB/slf4j-api-1.5.11.jar
+CLASS_PATH=$CLASS_PATH:$LIB/slf4j-log4j12-1.5.11.jar
+
+#
+# Bouncy castle encryption library
+CLASS_PATH=$CLASS_PATH:$LIB/bcprov-jdk14-122.jar
+
+#
+# Log4J
+CLASS_PATH=$CLASS_PATH:$LIB/log4j-1.2.9.jar
+
+#
+# Mail libs
+CLASS_PATH=$CLASS_PATH:$LIB/mail.jar
+CLASS_PATH=$CLASS_PATH:$LIB/activation.jar
+CLASS_PATH=$CLASS_PATH:$LIB/jmxtools.jar
+
+#
+# Wasp webservice client libraries
+CLASS_PATH=$CLASS_PATH:$WASP_HOME
+CLASS_PATH=$CLASS_PATH:$WASP_LIB/wasp.jar
+
+#
+# DB libs
+CLASS_PATH=$CLASS_PATH:$LIB/ojdbc14.jar
+CLASS_PATH=$CLASS_PATH:$LIB/postgresql-8.4-701.jdbc4.jar
+CLASS_PATH=$CLASS_PATH:$LIB/jtds-1.2.2.jar
+CLASS_PATH=$CLASS_PATH:$LIB/tomcat-juli.jar
+CLASS_PATH=$CLASS_PATH:$LIB/tomcat-jdbc.jar
+
+
+#
+# xml parser
+CLASS_PATH=$CLASS_PATH:$LIB/vtd-xml.jar
+
+#
+# local dir
+CLASS_PATH=$CLASS_PATH:$PROCSERVER
+
+export CLASS_PATH
+
+/usr/bin/java -cp $CLASS_PATH:com.emerywaterhouse.server.ProcessServer.class -server -Xms100m -Xmx1024m -XX:MaxPermSize=1024m com.emerywaterhouse.server.ProcessServer

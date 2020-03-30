@@ -1,0 +1,9 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+*.class
+/bin/
+\.idea/
+log/
+lib/
+/target/
+.settings/org.eclipse.m2e.core.prefs
+ace-ny01.xml

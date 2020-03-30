@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Applications>
+   <App name="ConfApp" class="com.emerywaterhouse.conf.ConfApp" autoStart="true">
+      <Property name="maxProcs" value="10"></Property>      
+   </App>   
+   <App name="FaxProcessor" class="com.emerywaterhouse.fax.FaxApp" autoStart="true">
+      <Property name="maxProcs" value="1"></Property>
+      <Property name="maxTries" value="3"></Property>
+   </App>
+   <!-- 
+   <App name="AceDataApp" class="com.emerywaterhouse.ace.AceApp" autoStart="true">
+      <Property name="maxProcs" value="10"></Property>
+   </App>   
+   <App name="FasApp" class="com.emerywaterhouse.fas.FasApp" autoStart="true">
+      <Property name="maxProcs" value="10"></Property>        
+   </App>
+   <App name="TestApp" class="com.emerywaterhouse.test.TestApp" autoStart="true">
+      <Property name="maxProcs" value="1"></Property>
+   </App>
+   -->
+</Applications>

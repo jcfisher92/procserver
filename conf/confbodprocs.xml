@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bodProcessors>
+   <bodProc>
+      <bod>SyncFaxDisposition</bod>
+      <class>com.emerywaterhouse.conf.SyncFaxDispProc</class>
+   </bodProc>
+   <bodProc>
+      <bod>CreateOrderConfirmation</bod>
+      <class>com.emerywaterhouse.conf.CreateOrderConfProc</class>
+   </bodProc>
+   <bodProc>
+      <bod>CreatePaymentConfirmation</bod>
+      <class>com.emerywaterhouse.conf.CreatePayConfProc</class>
+   </bodProc>
+   <bodProc>
+      <bod>CreateDuplicatePurchaseOrder</bod>
+      <class>com.emerywaterhouse.conf.CreateDuplicateOrderNotification</class>
+   </bodProc>
+   <bodProc>
+      <bod>CreateAceOrderConfirmation</bod>
+      <class>com.emerywaterhouse.conf.CreateAceOrderConfProc</class>
+   </bodProc>
+   <bodProc>
+      <bod>CreateAceShipmentConfirmation</bod>
+      <class>com.emerywaterhouse.conf.CreateAceShipConfProc</class>
+   </bodProc>
+   <bodProc>
+      <bod>ConfirmBOD</bod>
+      <class>com.emerywaterhouse.conf.CreateConfBodProc</class>
+   </bodProc>
+</bodProcessors>

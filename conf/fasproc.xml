@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fasJobProcesses>   
+   <jobProc>
+      <job>ItemUpdate</job>
+      <class>com.emerywaterhouse.fas.ItemUpdate</class>
+      <autoStart>1</autoStart>
+      <interval>10</interval>
+      <maxRunTime>90</maxRunTime>
+      <whsId>0</whsId>
+      <fasFacId>00</fasFacId>
+      <minStartHour>0</minStartHour>
+      <maxStartHour>23</maxStartHour>
+   </jobProc>
+    <jobProc>
+      <job>VendorUpdate</job>
+      <class>com.emerywaterhouse.fas.VendorUpdate</class>
+      <autoStart>1</autoStart>
+      <interval>10</interval>
+      <maxRunTime>90</maxRunTime>
+	   <whsId>0</whsId>
+      <fasFacId>00</fasFacId>
+      <minStartHour>0</minStartHour>
+      <maxStartHour>23</maxStartHour>
+   </jobProc>
+   <jobProc>
+      <job>UpcUpdate</job>
+      <class>com.emerywaterhouse.fas.UpcUpdate</class>
+      <autoStart>1</autoStart>
+      <interval>10</interval>
+      <maxRunTime>90</maxRunTime>
+      <whsId>0</whsId>
+      <fasFacId>00</fasFacId>
+      <minStartHour>0</minStartHour>
+      <maxStartHour>23</maxStartHour>
+   </jobProc>
+</fasJobProcesses>

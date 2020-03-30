@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edbJobProcesses>
+   <!-- 
+   <jobProc>
+      <job>SyncItemQtyView</job>
+      <class>com.emerywaterhouse.edb.SyncItemQtyView</class>
+      <autoStart>1</autoStart>
+      <interval>10</interval>
+      <maxRunTime>60</maxRunTime>
+   </jobProc>
+   -->
+   <!--
+   <jobProc>
+      <job>ConvertItemData</job>
+      <class>com.emerywaterhouse.edb.ConvertItemData</class>
+      <autoStart>1</autoStart>
+      <interval>10</interval>
+      <maxRunTime>60</maxRunTime>
+   </jobProc>
+   -->
+</edbJobProcesses>

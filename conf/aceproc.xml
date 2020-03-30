@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aceJobProcesses>   
+   <jobProc>
+      <job>ArticleFeed</job>
+      <class>com.emerywaterhouse.ace.ArticleFeed</class>
+      <autoStart>1</autoStart>
+      <interval>10</interval>
+      <maxRunTime>180</maxRunTime>      
+      <minStartHour>0</minStartHour>
+      <maxStartHour>23</maxStartHour>
+   </jobProc>
+</aceJobProcesses>

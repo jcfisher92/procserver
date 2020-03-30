@@ -1,0 +1,211 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.emerywaterhouse</groupId>
+	<artifactId>ProcServer</artifactId>
+	<version>2.0.0</version>
+	<name>ProcServer</name>
+	<url>http://www.emeryonline.com</url>
+
+	<repositories>
+		<repository>
+			<id>internal</id>
+			<name>Archiva Managed Internal Repository</name>
+			<url>http://10.128.0.42:8989/archiva/repository/internal/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<name>Archiva Managed Snapshot Repository</name>
+			<url>http://10.128.0.42:8989/archiva/repository/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<profiles>
+		<profile>
+			<id>test</id>
+			<properties>
+				<deploy.path>procsrv:procsrv@172.30.1.43:/usr/local/procserver</deploy.path>
+				<env>test</env>
+				<scp.host>172.30.1.43</scp.host>
+				<scp.username>procsrv</scp.username>
+				<scp.password>procsrv</scp.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env>prod</env>
+				<deploy.path>procsrv:GollumFish@172.30.1.43:/usr/local/procserver</deploy.path>
+				<env>test</env>
+				<scp.host>172.30.1.32</scp.host>
+				<scp.username>procsrv</scp.username>
+				<scp.password>GollumFish</scp.password>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<!-- Emery Libraries -->
+		<dependency>
+			<groupId>com.emerywaterhouse</groupId>
+			<artifactId>emutils</artifactId>
+			<version>3.4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emerywaterhouse</groupId>
+			<artifactId>emloader</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emerywaterhouse</groupId>
+			<artifactId>wsbeans</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emerywaterhouse</groupId>
+			<artifactId>oagisbeans</artifactId>
+			<version>1.0.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emerywaterhouse</groupId>
+			<artifactId>oagis</artifactId>
+			<version>3.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emerywaterhouse</groupId>
+			<artifactId>emrouting</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emerywaterhouse</groupId>
+			<artifactId>emobjs</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<!-- Camel Libraries -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>2.13.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-ftp</artifactId>
+			<version>2.13.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-rabbitmq</artifactId>
+			<version>2.13.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-quartz</artifactId>
+			<version>2.13.1</version>
+		</dependency>
+
+		<!-- DB Libraries -->
+		<dependency>
+			<groupId>com.edb</groupId>
+			<artifactId>edb-jdbc</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.jtds</groupId>
+			<artifactId>jtds</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+
+		<!-- Message Broker Libraries -->
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>5.1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.ximpleware/vtd-xml -->
+		<dependency>
+			<groupId>com.ximpleware</groupId>
+			<artifactId>vtd-xml</artifactId>
+			<version>2.13.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jdmk</groupId>
+			<artifactId>jmxtools</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.9</version>
+		</dependency>
+
+
+		<!-- Crypto https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.59</version>
+		</dependency>
+
+		<!-- Apache Commons for http connections -->
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.6</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
